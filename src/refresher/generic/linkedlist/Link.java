@@ -1,21 +1,23 @@
 package refresher.generic.linkedlist;
 
-public class Link
+public class Link<T>
 {
-    public int data1;
-    public double data2;
-    public Link nextLink;
+   public T data;
+   public Link<T> nextLink;
 
-    //Link constructor
-    public Link(int d1, double d2)
-    {
-	    data1 = d1;
-	    data2 = d2;
-    }
+   /**
+    * Constructor for the link. Assigns data to the link object.
+    * 
+    * 
+    */
+   public Link(T data)
+   {
+      this.data = data;
+   }
 
-    //Print Link data
-    public void printLink()
-    {
-	    System.out.print("{" + data1 + ", " + data2 + "} ");
-    }
+   //Print Link data
+   public String toString()
+   {
+       return data.toString();
+   }
 }

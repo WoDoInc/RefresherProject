@@ -2,7 +2,7 @@ package refresher.generic.linkedlist;
 class LinkedList
 {
    
-   private Link first;
+   private Link<Integer> first;
 
    //LinkList constructor
    public LinkedList()
@@ -17,17 +17,17 @@ class LinkedList
    }
 
    //Inserts a new Link at the first of the list
-   public void insert(int d1, double d2)
+   public void insert(int data)
    {
-	   Link link = new Link(d1, d2);
+	   Link<Integer> link = new Link<>(data);
 	   link.nextLink = first;
 	   first = link;
    }
 
    //Deletes the link at the first of the list
-   public Link delete()
+   public Link<Integer> delete()
    {
-	   Link temp = first;
+	   Link<Integer> temp = first;
 	   first = first.nextLink;
 	   return temp;
    }
@@ -35,11 +35,11 @@ class LinkedList
    //Prints list data
    public void printList()
    {
-	   Link currentLink = first;
+	   Link<Integer> currentLink = first;
 	   System.out.println("List: ");
 	   while(currentLink != null)
 	   {
-          currentLink.printLink();
+          System.out.println(currentLink.toString());
           currentLink = currentLink.nextLink;
 	   }
    }
@@ -47,22 +47,19 @@ class LinkedList
    public static void main(String[] args)
    {
 	   LinkedList list = new LinkedList();
-
-	   list.insert(1, 1.01);
-	   list.insert(2, 2.02);
-	   list.insert(3, 3.03);
-	   list.insert(4, 4.04);
-	   list.insert(5, 5.05);
+	   list.insert(1);
+	   list.insert(2);
+	   list.insert(3);
+	   list.insert(4);
+	   list.insert(5);
 	   list.printList();
 
       while(!list.isEmpty())
 	   {
-		   Link deletedLink = list.delete();
-		   System.out.print("deleted: ");
-		   deletedLink.printLink();
-		   System.out.println("");
+		   Link<Integer> deletedLink = list.delete();
+		   System.out.println("deleted: " + deletedLink.toString());
 	   }
-	    
-	   list.printList();
+
+      list.printList();
    }
 }
