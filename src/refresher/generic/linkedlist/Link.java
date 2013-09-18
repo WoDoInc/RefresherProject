@@ -24,6 +24,14 @@ public class Link<T>
    {
       return this.data;
    }
+   
+   /**
+    * Set the data in the current link.
+    */
+   public void setData(T data)
+   {
+      this.data = data;
+   }
 
    /**
     * Gets the next link.
